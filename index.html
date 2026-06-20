@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board | CodeCrafters Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar" style="position: static;">
+    <div class="nav-container">
+      <a href="https://GIRIJA-alt-2705.github.io/Agency-Portfolio/" class="nav-logo">
+        <div class="logo-icon"><span class="logo-bracket">&lt;</span>CC<span class="logo-bracket">/&gt;</span></div>
+        <span class="logo-text">CodeCrafters</span>
+      </a>
+      <a href="https://GIRIJA-alt-2705.github.io/Agency-Portfolio/#projects" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.85rem;">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <main class="kanban-wrapper">
+    <div class="kanban-header">
+      <div class="header-titles">
+        <h1>Project Tasks</h1>
+        <p>Drag and drop tasks across columns.</p>
+      </div>
+      <button class="btn btn-primary" id="add-task-btn">+ New Task</button>
+    </div>
+
+    <div class="kanban-board">
+      <!-- To Do Column -->
+      <div class="column" id="todo" data-column="todo">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="column-dot" style="background: var(--primary)"></span> To Do
+          </div>
+          <span class="task-count" id="count-todo">0</span>
+        </div>
+        <div class="task-list">
+          <!-- Tasks injected here -->
+        </div>
+      </div>
+
+      <!-- In Progress Column -->
+      <div class="column" id="in-progress" data-column="in-progress">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="column-dot" style="background: #f59e0b"></span> In Progress
+          </div>
+          <span class="task-count" id="count-in-progress">0</span>
+        </div>
+        <div class="task-list">
+          <!-- Tasks injected here -->
+        </div>
+      </div>
+
+      <!-- Done Column -->
+      <div class="column" id="done" data-column="done">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="column-dot" style="background: #10b981"></span> Done
+          </div>
+          <span class="task-count" id="count-done">0</span>
+        </div>
+        <div class="task-list">
+          <!-- Tasks injected here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Create Task</h3>
+        <button class="close-btn" id="close-modal">&times;</button>
+      </div>
+      <form id="task-form">
+        <input type="hidden" id="task-id">
+        <div class="form-group">
+          <label for="task-title">Title</label>
+          <input type="text" id="task-title" required autocomplete="off" placeholder="e.g., Update hero section">
+        </div>
+        <div class="form-group">
+          <label for="task-desc">Description</label>
+          <textarea id="task-desc" rows="3" placeholder="Add some details..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="task-column">Status</label>
+          <select id="task-column">
+            <option value="todo">To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="save-btn">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
